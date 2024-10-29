@@ -1,0 +1,41 @@
+@import "./styles/variables.css";
+@tailwind base;
+@tailwind components;
+@tailwind utilities;
+
+/* Custom styles for switch controls */
+.switch-sm input[type="checkbox"] {
+  height: 1.125rem;
+  width: 1.875rem;
+  border-radius: 1.125rem;
+  background-color: #1b84ff;
+  transition: all 0.15s ease-in-out;
+  display: flex;
+  align-items: center; /* Center the circle vertically */
+  cursor: pointer;
+  flex-shrink: 0;
+  appearance: none;
+  position: relative; /* Add this to position the circle */
+}
+
+/* Adjust the switch thumb size and position */
+.switch-sm input[type="checkbox"]::before {
+  content: "";
+  position: absolute; /* Position the circle absolutely within the switch */
+  height: 0.875rem;
+  width: 0.875rem;
+  border-radius: 50%;
+  background-color: white;
+  left: 0.125rem; /* Adjust left position */
+  transition: transform 0.15s ease-in-out;
+}
+
+/* Adjust the switch active state */
+.switch-sm input[type="checkbox"]:checked::before {
+  transform: translateX(0.75rem);
+}
+
+/* Adjust the switch background color when unchecked */
+.switch-sm input[type="checkbox"]:not(:checked) {
+  background-color: #d1d5db; /* gray-300 */
+}
